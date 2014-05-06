@@ -63,6 +63,7 @@ Więcej na ten temat można znaleźć na stronie [PISA2012](http://pisa2012.acer
 
 
 Więcej o PISA2012 można obejrzeć na Konferencji Umiejętności 15-latków: PISA 2012
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=FbYxl1_RkTI
 " target="_blank"><img src="http://img.youtube.com/vi/FbYxl1_RkTI/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
