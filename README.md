@@ -51,7 +51,7 @@ proc export data=Pol
    replace;
 run;
 ```
-Ostatecznie z pliku **.csv** można już "tradycyjnie" wczytać dane do pakietu $\mathcal{R}$, używając prostego polecenia **read.csv**.
+Ostatecznie z pliku **.csv** można już "tradycyjnie" wczytać dane do pakietu **R**, używając prostego polecenia **read.csv**.
 ```{Ruby}
 POL <- read.csv("D:/PISA 2012/polska.csv", sep=",", h=TRUE)
 ```
@@ -59,6 +59,3 @@ POL <- read.csv("D:/PISA 2012/polska.csv", sep=",", h=TRUE)
 Opisy poszczególnych kolumn można znaleźć w [Codebook'u](http://pisa2012.acer.edu.au/downloads/M_stu_codebook.pdf). Należy pamiętać, że powyższa baza danych dotyczyła jedynie kwestionariuszy wypełnianych przez uczniów.
 Więcej na ten temat można znaleźć na stronie [PISA2012](http://pisa2012.acer.edu.au/downloads.php).
 
-
-
-$f(x)=\sqrt(x)$
