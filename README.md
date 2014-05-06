@@ -61,6 +61,29 @@ Więcej na ten temat można znaleźć na stronie [PISA2012](http://pisa2012.acer
 
 
 
+<h3>Wyniki uzyskane przez uczniów w Polsce</h3>
+Podobne kroki wykonuję się, aby wgrać do pakietu **R** wyniki uzyskane przez Polskich szesnatolatków. Dane w formacie `.txt` pobieramy [stąd](http://pisa2012.acer.edu.au/downloads/INT_COG12_S_DEC03.zip). Przy użyciu tych samych komend w **SAS**, tworzę plik o rozszerzeniu `.csv` zawierający wyniki. Następnie wgrywam je do **R** i łączę z poprzednią ramką danych (być może bezmyślnie).
+```{Ruby}
+Wyn <- read.csv("D:/PISA 2012/wyniki.csv", sep=",", h=TRUE)
+
+polo <- merge(POL, Wyn)
+```
+Następnie, by można było ewentualnie przetransportować połączone dane, używam poniższych komend do zapisu scalonej bazy danych w formacie `.txt` i `.csv`
+```{Ruby}
+write.csv(polo, "D:/PISA 2012/polaczone.csv")
+
+write.table(polo, "D:/PISA 2012/polaczone.txt", sep="\t")
+```
+Obecnie dane można wczytać poleceniami:
+```{Ruby}
+ponowne <- read.table("D:/PISA 2012/polaczone.txt", sep="\t", header=TRUE)
+ponowne2 <- read.csv("D:/PISA 2012/polaczone.csv", sep=",", h=TRUE)
+```
+Zbiór danych wczytanych z pliku `.csv` zawiera na początku jedną dodatkową kolumnę zawierającą liczbę porządkową danego gimnazjalisty.
+
+
+
+
 
 Więcej o PISA2012 można obejrzeć na Konferencji Umiejętności 15-latków: PISA 2012
 
