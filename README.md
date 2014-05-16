@@ -23,7 +23,7 @@ dopisać swój rozdział bądź podrozdział i zostanie uwzględniony w spisie a
 naszych eksperymentalnych potyczek ze zbiorem danych z **PISA2012**.
 
 
-[Nasza strona internetowa](http://kolozarzadzaniaprojektamistatystycznymi.github.io/info/)
+[Nasza strona internetowa](http://kzps.github.io/info/)
 
 <h3> WCZYTANIE PISA2012 DO R </h3>
 Poniżej mała instrukcja jak dokopać się do danych z PISA2012, aby działały w **R**.
