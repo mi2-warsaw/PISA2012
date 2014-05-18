@@ -11,19 +11,19 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{hyperref} %pakiet do dodawania hiper³±cz
+\usepackage{hyperref} %pakiet do dodawania hiper??cz
 \hypersetup{colorlinks=true,
             linkcolor=blue,
             citecolor=black,
             urlcolor=blue}
 
-%%%%%%%%%%%%%%%%%% Strona tytu³owa i stopki %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Strona tytu?owa i stopki %%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[Conny]{fncychap}
-\fancyhead[RO,LE]{\bfseries \small{Ko³o Zarz±dzania Projektami Statystycznymi, Uniwersytet Warszawski}}
+\fancyhead[RO,LE]{\bfseries \small{Ko?o Zarz?dzania Projektami Statystycznymi, Uniwersytet Warszawski}}
 
-\title{ \textbf{\Huge{Poligon Do¶wiadczalny} \\ \large Czyli co m³ody statystyk jest w stanie wyczytaæ z danych PISA2012?}}
+\title{ \textbf{\Huge{Poligon Do?wiadczalny} \\ \large Czyli co m?ody statystyk jest w stanie wyczyta? z danych PISA2012?}}
 
-\author{Marcin Kosiñski\footnote{Wydzia³ Matematyki, Informatyki i Mechaniki, Uniwersytet Warszawski}\footnote{Wydzia³ Matematyki i Nauk Informacyjnych, Politechnika Warszawska}\footnote{Wydzia³ Biologii, Uniwersytet Warszawski}\footnote{Wydzia³ Fizyki, Uniwersytet Warszawski}, Marcin Kania\footnotemark[1], Marta Szczerbieñ\footnotemark[134], \\ Magda Wa¶niowska\footnotemark[1], Patrycja Wi¶niewska\footnotemark[1]\footnote{Wydzia³ Nauk Ekonomicznych, Uniwersytet Warszawski} \\ \\  mailkola@mimuw.edu.pl}
+\author{Marcin Kosi?ski\footnote{Wydzia? Matematyki, Informatyki i Mechaniki, Uniwersytet Warszawski}\footnote{Wydzia? Matematyki i Nauk Informacyjnych, Politechnika Warszawska}\footnote{Wydzia? Biologii, Uniwersytet Warszawski}\footnote{Wydzia? Fizyki, Uniwersytet Warszawski}, Marcin Kania\footnotemark[1], Marta Szczerbie?\footnotemark[134], \\ Magda Wa?niowska\footnotemark[1], Patrycja Wi?niewska\footnotemark[1]\footnote{Wydzia? Nauk Ekonomicznych, Uniwersytet Warszawski} \\ \\  mailkola@mimuw.edu.pl}
 
 
 
@@ -34,14 +34,14 @@
 \begin{center}
 \textbf{Streszczenie}
 \end{center}
-\par{}Poni¿szy dokument przedstawia raport [na temat] stworzony przez cz³onków Ko³a Zarz±dzania Projektami Statystycznymi Uniwersytetu Warszawskiego. Dane niezbêdne do analizy zosta³y zaczerpniête z badania \texttt{PISA2012} - Programme for International Student Assesment, przeprowadzanego przez Organisation for Economic Co-operation and Development (na pewno?). Raport jest w trakcie tworzenia. Ka¿dy zainteresowany mo¿e dopisaæ swój rozdzia³ b±d¼ podrozdzia³ i zostanie uwzglêdniony w spisie autorów w ostatecznej wynikowej wersji naszych eksperymentalnych potyczek ze zbiorem danych z \texttt{PISA2012}. \\ \\
+\par{}Poni?szy dokument przedstawia raport [na temat] stworzony przez cz?onk?w Ko?a Zarz?dzania Projektami Statystycznymi Uniwersytetu Warszawskiego. Dane niezb?dne do analizy zosta?y zaczerpni?te z badania \texttt{PISA2012} - Programme for International Student Assesment, przeprowadzanego przez Organisation for Economic Co-operation and Development (na pewno?). Raport jest w trakcie tworzenia. Ka?dy zainteresowany mo?e dopisa? sw?j rozdzia? b?d? podrozdzia? i zostanie uwzgl?dniony w spisie autor?w w ostatecznej wynikowej wersji naszych eksperymentalnych potyczek ze zbiorem danych z \texttt{PISA2012}. \\ \\
 \textbf{Autorzy}
 \begin{itemize}
-\item[ ] Marcin Kania - Rozdzia³ \ref{r:MKiMS} \ref{r:alll}
-\item[ ] Marcin Kosiñski - Rozdzia³ \ref{r:kosa} \ref{r:alll}
-\item[ ] Marta Szczerbieñ - Rozdzia³ \ref{r:MKiMS}
-\item[ ] Magda Wa¶niowska - Rozdzia³ \ref{r:MWiPW} \ref{r:alll}
-\item[ ] Patrcyja Wi¶niewska - Rozdzia³ \ref{r:MWiPW} \ref{r:alll}
+\item[ ] Marcin Kania - Rozdzia? \ref{r:MKiMS} \ref{r:alll}
+\item[ ] Marcin Kosi?ski - Rozdzia? \ref{r:kosa} \ref{r:alll}
+\item[ ] Marta Szczerbie? - Rozdzia? \ref{r:MKiMS}
+\item[ ] Magda Wa?niowska - Rozdzia? \ref{r:MWiPW} \ref{r:alll}
+\item[ ] Patrcyja Wi?niewska - Rozdzia? \ref{r:MWiPW} \ref{r:alll}
 \end{itemize}
 
 
@@ -52,17 +52,17 @@ opts_chunk$set(comment="", fig.width=6, fig.height=6,tidy.opts=list(keep.blank.l
 #opts_knit$set(width=60)
 @
 
-%%%%%%%%%%%% Rozdzia³ Kosinskiego %%%%%%%%%%%%
+%%%%%%%%%%%% Rozdzia? Kosinskiego %%%%%%%%%%%%
 \chapter{Wczytanie PISA2012 do $\mathcal{R}$}\label{r:kosa}
-\section{Kwestionariusze osobowe uczniów}
-Poni¿ej ma³a instrukcja jak dokopaæ siê do danych z PISA2012, aby \text{dzia³a³y w $\mathcal{R}$.}
-Dane w formacie \texttt{.txt} pobieramy \href{http://pisa2012.acer.edu.au/downloads/INT_STU12_DEC03.zip}{st±d}. Nastêpnie w systemie \texttt{SAS} tworzymy nowy program, którego 3 pierwsze linie mo¿na (ale nie trzeba) wpisaæ jak poni¿ej:
+\section{Kwestionariusze osobowe uczni?w}
+Poni?ej ma?a instrukcja jak dokopa? si? do danych z PISA2012, aby \text{dzia?a?y w $\mathcal{R}$.}
+Dane w formacie \texttt{.txt} pobieramy \href{http://pisa2012.acer.edu.au/downloads/INT_STU12_DEC03.zip}{st?d}. Nast?pnie w systemie \texttt{SAS} tworzymy nowy program, kt?rego 3 pierwsze linie mo?na (ale nie trzeba) wpisa? jak poni?ej:
 <<eval=FALSE>>=
 libname  MD "D:\PISA 2012"; 
 filename STU "D:\PISA 2012\INT_STU12_DEC03.txt"; 
 options nofmterr;
 @
-Kolejne linie w programie powinny byc przekopiowane \href{http://pisa2012.acer.edu.au/downloads/INT_STU12_SAS.sas}{z tego pliku}. W tym momencie mo¿na ju¿ wywo³aæ ca³y program w \texttt{SAS}, aby uzyskaæ pe³n± bazê danych \texttt{PISA2012}. Poniewa¿ baza zajmuje oko³o 1,5 GB, ograniczymy siê jedynie do danych dotycz±cych Polski, dziêki czemu program $\mathcal{R}$ bêdzia dzia³a³ sprawniej na mniej pojemnym pliku. Pos³u¿y do tego zapytanie \texttt{SQL}, które prezentujê poni¿ej:
+Kolejne linie w programie powinny byc przekopiowane \href{http://pisa2012.acer.edu.au/downloads/INT_STU12_SAS.sas}{z tego pliku}. W tym momencie mo?na ju? wywo?a? ca?y program w \texttt{SAS}, aby uzyska? pe?n? baz? danych \texttt{PISA2012}. Poniewa? baza zajmuje oko?o 1,5 GB, ograniczymy si? jedynie do danych dotycz?cych Polski, dzi?ki czemu program $\mathcal{R}$ b?dzia dzia?a? sprawniej na mniej pojemnym pliku. Pos?u?y do tego zapytanie \texttt{SQL}, kt?re prezentuj? poni?ej:
 <<eval=FALSE, comment="">>=
 proc sql;
 create table POL as
@@ -71,7 +71,7 @@ from Md.Stu
 where CNT = 'POL'
 ;
 @
-Pomimo, ¿e pierwsza kolumna bazy, z której wybieramy jedynie Polskê, ma widniej±cy podpis \texttt{Country code 3-character}, to jednak po wy¶wietleniu atrytbutów kolumny widaæ, ¿e jej nazwa to \texttt{CNT}, a \texttt{Country code 3-character} to jedynie etykieta. Dodatkowo mo¿na w ten sposób odczytaæ informacjê o d³ugo¶ci znaków w tej kolumnie, która wynosi 3, dlatego ostatecznie w zapytaniu \texttt{SQL} widnieje linia \texttt{where CNT = 'POL'}. \par Tak pomniejszon± bazê danych eksportujê do formatu \texttt{.csv} (mo¿liwe, ¿e bezmy¶lnie), dziêki procedurze \texttt{export}. Wszystkie dotychczasowe komendy i operacja odbywa³y siê w systemie \texttt{SAS}.
+Pomimo, ?e pierwsza kolumna bazy, z kt?rej wybieramy jedynie Polsk?, ma widniej?cy podpis \texttt{Country code 3-character}, to jednak po wy?wietleniu atrytbut?w kolumny wida?, ?e jej nazwa to \texttt{CNT}, a \texttt{Country code 3-character} to jedynie etykieta. Dodatkowo mo?na w ten spos?b odczyta? informacj? o d?ugo?ci znak?w w tej kolumnie, kt?ra wynosi 3, dlatego ostatecznie w zapytaniu \texttt{SQL} widnieje linia \texttt{where CNT = 'POL'}. \par Tak pomniejszon? baz? danych eksportuj? do formatu \texttt{.csv} (mo?liwe, ?e bezmy?lnie), dzi?ki procedurze \texttt{export}. Wszystkie dotychczasowe komendy i operacja odbywa?y si? w systemie \texttt{SAS}.
 <<eval=FALSE, comment="">>=
 proc export data=Pol
    outfile='D:\PISA 2012\polska.csv'
@@ -79,11 +79,11 @@ proc export data=Pol
    replace;
 run;
 @
-Ostatecznie z pliku \texttt{.csv} mo¿na ju¿ "tradycyjnie" wczytaæ dane \text{do pakietu $\mathcal{R}$,} u¿ywaj±c prostego polecenia \texttt{read.csv}.
+Ostatecznie z pliku \texttt{.csv} mo?na ju? "tradycyjnie" wczyta? dane \text{do pakietu $\mathcal{R}$,} u?ywaj?c prostego polecenia \texttt{read.csv}.
 <<cache=TRUE,comment="">>=
 POL <- read.csv("D:/PISA 2012/polska.csv", sep=",", h=TRUE)
 @
-W rezulatacie wymiar bazdy danych, dotycz±cych jedynie Polski to:
+W rezulatacie wymiar bazdy danych, dotycz?cych jedynie Polski to:
 <<comment="">>=
 dim(POL)
 @
@@ -91,31 +91,31 @@ A rozmiar, w bajtach:
 <<comment="">>=
 file.info("D:/PISA 2012/polska.csv")$size
 @
-Dla porównania, ca³a baza danych \texttt{PISA2012} jeszcze w formacie \texttt{.txt}:
+Dla por?wnania, ca?a baza danych \texttt{PISA2012} jeszcze w formacie \texttt{.txt}:
 <<comment="",,tidy.opts=list(keep.blank.line=FALSE, width.cutoff=80)>>=
 format(file.info("D:/PISA 2012/INT_STU12_DEC03.txt")$size, digits=15)
 @
-Opisy poszczególnych kolumn mo¿na znale¼æ w \href{http://pisa2012.acer.edu.au/downloads/M_stu_codebook.pdf}{Codebook'u}. Nale¿y pamiêtaæ, ¿e powy¿sza baza danych dotyczy³a jedynie kwestionariuszy wype³nianych przez uczniów.  \\ \\
-Wiêcej na ten temat mo¿na znale¼æ na stronie \href{http://pisa2012.acer.edu.au/downloads.php}{PISA2012}.
-\section{Wyniki uzyskane przez uczniów w Polsce}
-Podobne kroki wykonujê siê, aby wgraæ do pakietu $\mathcal{R}$ wyniki uzyskane przez Polskich szesnatolatków. Dane w formacie \texttt{.txt} pobieramy \href{http://pisa2012.acer.edu.au/downloads/INT_COG12_S_DEC03.zip}{st±d}. Przy u¿yciu tych samych komend w \texttt{SAS}, tworzê plik o rozszerzeniu \texttt{.csv} zawieraj±cy wyniki. Nastêpnie wgrywam je do $\mathcal{R}$ i ³±czê z poprzedni± ramk± danych (byæ mo¿e bezmy¶lnie).
+Opisy poszczeg?lnych kolumn mo?na znale?? w \href{http://pisa2012.acer.edu.au/downloads/M_stu_codebook.pdf}{Codebook'u}. Nale?y pami?ta?, ?e powy?sza baza danych dotyczy?a jedynie kwestionariuszy wype?nianych przez uczni?w.  \\ \\
+Wi?cej na ten temat mo?na znale?? na stronie \href{http://pisa2012.acer.edu.au/downloads.php}{PISA2012}.
+\section{Wyniki uzyskane przez uczni?w w Polsce}
+Podobne kroki wykonuj? si?, aby wgra? do pakietu $\mathcal{R}$ wyniki uzyskane przez Polskich szesnatolatk?w. Dane w formacie \texttt{.txt} pobieramy \href{http://pisa2012.acer.edu.au/downloads/INT_COG12_S_DEC03.zip}{st?d}. Przy u?yciu tych samych komend w \texttt{SAS}, tworz? plik o rozszerzeniu \texttt{.csv} zawieraj?cy wyniki. Nast?pnie wgrywam je do $\mathcal{R}$ i ??cz? z poprzedni? ramk? danych (by? mo?e bezmy?lnie).
 <<eval=FALSE>>=
 Wyn <- read.csv("D:/PISA 2012/wyniki.csv", sep=",", h=TRUE)
 
 polo <- merge(POL, Wyn)
 @
-Nastêpnie by mo¿na by³o ewentualnie przetransportowaæ po³±czone dane u¿ywam poni¿szych komend do zapisu scalonej bazy danych w formacie \texttt{.txt} i \texttt{.csv}
+Nast?pnie by mo?na by?o ewentualnie przetransportowa? po??czone dane u?ywam poni?szych komend do zapisu scalonej bazy danych w formacie \texttt{.txt} i \texttt{.csv}
 <<eval=FALSE>>=
 write.csv(polo, "D:/PISA 2012/polaczone.csv")
 
 write.table(polo, "D:/PISA 2012/polaczone.txt", sep="\t")
 @
-Obecnie dane mo¿na wczytaæ poleceniami:
+Obecnie dane mo?na wczyta? poleceniami:
 <<cache=TRUE>>=
 ponowne <- read.table("D:/PISA 2012/polaczone.txt", sep="\t", header=TRUE)
 ponowne2 <- read.csv("D:/PISA 2012/polaczone.csv", sep=",", h=TRUE)
 @
-Zbiór danych wczytanych z pliku \texttt{.csv} zawiera na pocz±tku jedn± dodatkow± kolumnê zawieraj±c± liczbê porz±dkow± danego gimnazjalisty.
+Zbi?r danych wczytanych z pliku \texttt{.csv} zawiera na pocz?tku jedn? dodatkow? kolumn? zawieraj?c? liczb? porz?dkow? danego gimnazjalisty.
 <<>>=
 dim(ponowne)
 dim(ponowne2)
@@ -127,26 +127,26 @@ dim(ponowne2)
 
 
 %%%%%%%%%%% Rozdzial Marty Szczerbien i Marcina Kani %%%%%%%%%%%%%%%%
-\chapter{Procentowe porównanie odpowiedzi dzieci z Polski w kwestionariuszach}\label{r:MKiMS}
-\ \\ Przyda siê jaki¶ tekst :)
+\chapter{Procentowe por?wnanie odpowiedzi dzieci z Polski w kwestionariuszach}\label{r:MKiMS}
+\ \\ Przyda si? jaki? tekst :)
 
 <<comment="">>=
 podsum <- vector("list", length=dim(POL[,61:412])[2]) 
 for (i in 1:dim(POL[,61:412])[2]){
   podsum[[i]] <- summary(POL[,60+i])/sum(summary(POL[,60+i]))
   podsum[[i]] <- sapply(podsum[[i]],format, digits=3)
-  # Poprawa wygl±du wyników - skrócenie warto¶ci procentowych 
-  # do 3 liczb znacz±cych.
+  # Poprawa wygl?du wynik?w - skr?cenie warto?ci procentowych 
+  # do 3 liczb znacz?cych.
 }
 @
-\ \\ Przyk³adowe wywo³anie.
+\ \\ Przyk?adowe wywo?anie.
 <<comment="",tidy.opts=list(keep.blank.line=FALSE, width.cutoff=80)>>=
 podsum[[10]]
 podsum[[110]]
 @
 
-%%%%%%%%%%%% Rozdzia³ Magdy i Patrycji %%%%%%%%%%%%
-\chapter{Formularze wype³niane w Polsce}\label{r:MWiPW}
+%%%%%%%%%%%% Rozdzia? Magdy i Patrycji %%%%%%%%%%%%
+\chapter{Formularze wype?niane w Polsce}\label{r:MWiPW}
 Tekst tekst !
 <<>>=
 dane <- POL
@@ -165,14 +165,14 @@ Piekny obrazek !
 <<fig.width=6, fig.height=4.5>>=  
 pie(y, labels=c("Strongly Agree","Agree", "Disagree", "Strongly Disagree", "Invalid"), main="Maths Interest - Enjoy Reading")
 @
-\chapter{Szybka, wstêpna, treningowa analiza na ¶lepo}\label{r:alll}
+\chapter{Szybka, wst?pna, treningowa analiza na ?lepo}\label{r:alll}
 \section{Podmiana palety w $\mathcal{R}$}
-Zmiana balety dziêki wykorzystaniu pakietu \texttt{RColorBrewer}
+Zmiana balety dzi?ki wykorzystaniu pakietu \texttt{RColorBrewer}
 <<eval>>=
 require("RColorBrewer") 
 palette(brewer.pal(n=12, name="Paired")) 
 @
-Dostêpne kolory w nowej palecie \\ \\
+Dost?pne kolory w nowej palecie \\ \\
 <<echo=FALSE, fig.height=5, fig.width=6>>=
 par(mar=rep(0,4)) 
 plot.new() 
@@ -195,7 +195,7 @@ ile_punktow<- function(x){
   return(suma)
 }
 @
-Przyk³adowe dzia³anie.
+Przyk?adowe dzia?anie.
 <<>>=
 ile_punktow(polska[7,])
 
@@ -210,13 +210,13 @@ colnames(polska)[845]<-c("Wynik")
 attach(polska)
 summary(Wynik)
 @
-Prezentacja wyników.
+Prezentacja wynik?w.
 <<>>=
 hist(Wynik, freq=FALSE, br=63)
 curve(dnorm(x,mean(Wynik), sd(Wynik)), col="red", add=TRUE)
 
 @
-Testy na normalno¶æ.
+Testy na normalno??.
 <<>>=
 ks.test(Wynik, "pnorm")
 
@@ -229,7 +229,7 @@ shapiro.test(polskaM$Wynik)
 shapiro.test(polskaK$Wynik)
 @
 
-Kilka histogramów.
+Kilka histogram?w.
 <<>>=
 par(mfrow=c(1,1))
 hist(polskaK$Wynik, freq=FALSE, br=63, col=adjustcolor(11,0.7))
@@ -251,7 +251,7 @@ Test wilcoxona.
 <<>>=
 wilcox.test(polskaM$Wynik,polskaK$Wynik,alternative="less")
 @
-Co¶ innego.
+Co? innego.
 <<>>=
 sum(polskaK$Wynik==0)
 sum(polskaM$Wynik==0)
@@ -284,25 +284,66 @@ for (i in 1:6){
   hist(get(stri_paste("k",i)), cex=0.8)
 }
 
-
-#ggplot2 sprawdzic
 @
-Analiza wariancji dla zmiennej "liczba posiadanych ksi±¿ek" - bez sprawdzenia za³o¿eñ.
+
+Podzial na liczbe posiadanych ksiazek.
+<<>>=
+length(unique(factor(polska$ST28Q01)))
+unique(factor(polska$ST28Q01))
+nazwy<-unique(factor(polska$ST28Q01))
+
+wektor <- vector("list",length=6)
+wektor
+
+for (i in 1:6){
+ wektor[[i]] <- polska[polska$ST28Q01==nazwy[i],]
+}
+
+for (i in 1:6){
+  assign(paste("k",i, sep=""),wektor[[i]]$Wynik)
+}
+
+@
+
+Histogramy dla ksiazek
+<<>>=
+par(mfrow=c(3,2))
+for (i in 1:6){
+  hist(get(paste("k",i, sep="")), main=paste(nazwy[i]), br=30, xla="Liczba osob")
+}
+@
+
+
+Boxxplot dla ksiazek
+<<>>=
+par(mfrow=c(3,2))
+for (i in 1:6){
+  boxplot(get(paste("k",i, sep="")), main=paste(nazwy[i]), ylim=c(0,65))
+  abline(h=quantile(get(paste("k",i, sep="")), probs=1/4), col=10)
+  abline(h=quantile(get(paste("k",i, sep="")), probs=3/4), col=12)
+}
+@
+
+
+
+
+
+Analiza wariancji dla zmiennej "liczba posiadanych ksi??ek" - bez sprawdzenia za?o?e?.
 <<>>=
 analiza1 <- aov(Wynik~as.character(ST28Q01), data=polska)
 summary(analiza1)
 @
-Porównania wielokrotne.
+Por?wnania wielokrotne.
 <<>>=
 TukeyHSD(analiza1)
 @
-Test nieparametryczny Kruskala-Walisa, gdy¿ zapewne za³o¿enia analizy wariancji nie s± spe³nione.
+Test nieparametryczny Kruskala-Walisa, gdy? zapewne za?o?enia analizy wariancji nie s? spe?nione.
 <<>>=
 
 kruskal.test(Wynik~ST28Q01)
 @
 
-\chapter{Potêga wektoryzacji}
+\chapter{Pot?ga wektoryzacji}
 
 <<eval=FALSE>>=
 install.packages("microbenchmark")
