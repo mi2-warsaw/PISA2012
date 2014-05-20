@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>PISA2012 by KZPS</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>PISA2012</h1>
+          <h2></h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/KZPS/PISA2012/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/KZPS/PISA2012/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/KZPS/PISA2012" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="analiza-mo%C5%BCliwo%C5%9Bci-intelektualnych-15latk%C3%B3w-pisa-2012-" class="anchor" href="#analiza-mo%C5%BCliwo%C5%9Bci-intelektualnych-15latk%C3%B3w-pisa-2012-"><span class="octicon octicon-link"></span></a>Analiza możliwości intelektualnych 15latków PISA 2012 !</h1>
+
+<h2>
+<a name="poligon-do%C5%9Bwiadczalny" class="anchor" href="#poligon-do%C5%9Bwiadczalny"><span class="octicon octicon-link"></span></a>Poligon Doświadczalny</h2>
+
+<p>Czyli co młody statystyk jest w stanie wyczytać z danych PISA2012?</p>
+
+<p>Twórcy projektu</p>
+
+<ul>
+<li>Marcin Kosiński, </li>
+<li>Marcin Kania,</li>
+<li>Marta Szczerbień,</li>
+<li>Magda Waśniowska,</li>
+<li>Patrycja Wiśniewska</li>
+</ul><blockquote>
+<p>Kontakt: <a href="mailto:kzps@mimuw.edu.pl">kzps@mimuw.edu.pl</a></p>
+</blockquote>
+
+<h3>
+<a name="-cel--" class="anchor" href="#-cel--"><span class="octicon octicon-link"></span></a> Cel ! </h3>
+
+<p>Poniższe repozytorium przedstawia raport [na temat] stworzony przez członków Koła Zarządzania Projektami Statystycznymi Uniwersytetu Warszawskiego. Dane niezbędne do analizy zostały zaczerpnięte z badania <strong>PISA2012</strong> - Programme for International Student Assesment, przeprowadzanego przez Organisation for Economic Co-operation and Development (OECD).
+Raport jest w trakcie tworzenia. Każdy zainteresowany może
+dopisać swój rozdział bądź podrozdział i zostanie uwzględniony w spisie autorów w ostatecznej wynikowej wersji
+naszych eksperymentalnych potyczek ze zbiorem danych z <strong>PISA2012</strong>.</p>
+
+<p><a href="http://kzps.github.io/info/">Nasza strona internetowa</a></p>
+
+<h3>
+<a name="-wczytanie-pisa2012-do-r-" class="anchor" href="#-wczytanie-pisa2012-do-r-"><span class="octicon octicon-link"></span></a> WCZYTANIE PISA2012 DO R </h3>
+
+<p>Poniżej mała instrukcja jak dokopać się do danych z PISA2012, aby działały w <strong>R</strong>.
+Dane w formacie <code>.txt</code> pobieramy <a href="http://pisa2012.acer.edu.au/downloads/INT_STU12_DEC03.zip">stąd</a>. Następnie w systemie <strong>SAS</strong> tworzymy nowy program, którego 3 pierwsze linie można (ale nie trzeba) wpisać jak poniżej:</p>
+
+<div class="highlight highlight-Ruby"><pre><span class="n">libname</span>  <span class="no">MD</span> <span class="s2">"D:\PISA 2012"</span><span class="p">;</span> 
+<span class="n">filename</span> <span class="no">STU</span> <span class="s2">"D:\PISA 2012\INT_STU12_DEC03.txt"</span><span class="p">;</span> 
+<span class="n">options</span> <span class="n">nofmterr</span><span class="p">;</span>
+</pre></div>
+
+<p>Kolejne linie w programie powinny byc przekopiowane <a href="http://pisa2012.acer.edu.au/downloads/INT_STU12_SAS.sas">z tego pliku</a>. W tym momencie można już wywołać cały program w <strong>SAS</strong>, aby uzyskać pełną bazę danych <strong>PISA2012</strong>. Ponieważ baza zajmuje około 1,5 GB, ograniczymy się jedynie do danych dotyczących Polski, dzięki czemu program <strong>R</strong> będzia działał sprawniej na mniej pojemnym pliku. Posłuży do tego zapytanie <strong>SQL</strong>, które prezentuję poniżej:</p>
+
+<div class="highlight highlight-Ruby"><pre><span class="nb">proc</span> <span class="n">sql</span><span class="p">;</span>
+<span class="n">create</span> <span class="n">table</span> <span class="no">POL</span> <span class="n">as</span>
+<span class="nb">select</span> <span class="o">*</span>
+<span class="n">from</span> <span class="no">Md</span><span class="o">.</span><span class="n">Stu</span>
+<span class="n">where</span> <span class="no">CNT</span> <span class="o">=</span> <span class="s1">'POL'</span>
+<span class="p">;</span>
+</pre></div>
+
+<p>Pomimo, że pierwsza kolumna bazy, z której wybieramy jedynie Polskę, ma widniejący podpis <code>Country code 3-character</code>, to jednak po wyświetleniu atrytbutów kolumny widać, że jej nazwa to <code>CNT</code>, a <code>Country code 3-character</code> to jedynie etykieta. Dodatkowo można w ten sposób odczytać informację o długości znaków w tej kolumnie, która wynosi 3, dlatego ostatecznie w zapytaniu <strong>SQL</strong> widnieje linia <code>where CNT = 'POL'</code>. 
+Tak pomniejszoną bazę danych eksportuję do formatu <code>.csv</code> (możliwe, że bezmyślnie), dzięki procedurze <code>export</code>. Wszystkie dotychczasowe komendy i operacja odbywały się w systemie <strong>SAS</strong>.</p>
+
+<div class="highlight highlight-Ruby"><pre><span class="nb">proc</span> <span class="n">export</span> <span class="n">data</span><span class="o">=</span><span class="no">Pol</span>
+   <span class="n">outfile</span><span class="o">=</span><span class="s1">'D:\PISA 2012\polska.csv'</span>
+   <span class="n">dbms</span><span class="o">=</span><span class="n">csv</span>
+   <span class="n">replace</span><span class="p">;</span>
+<span class="n">run</span><span class="p">;</span>
+</pre></div>
+
+<p>Ostatecznie z pliku <code>.csv</code> można już "tradycyjnie" wczytać dane do pakietu <strong>R</strong>, używając prostego polecenia <strong>read.csv</strong>.</p>
+
+<div class="highlight highlight-Ruby"><pre><span class="no">POL</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">"D:/PISA 2012/polska.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="no">TRUE</span><span class="p">)</span>
+</pre></div>
+
+<p>Opisy poszczególnych kolumn można znaleźć w <a href="http://pisa2012.acer.edu.au/downloads/M_stu_codebook.pdf">Codebook'u</a>. Należy pamiętać, że powyższa baza danych dotyczyła jedynie kwestionariuszy wypełnianych przez uczniów.
+Więcej na ten temat można znaleźć na stronie <a href="http://pisa2012.acer.edu.au/downloads.php">PISA2012</a>.</p>
+
+<h3>
+<a name="wyniki-uzyskane-przez-uczni%C3%B3w-w-polsce" class="anchor" href="#wyniki-uzyskane-przez-uczni%C3%B3w-w-polsce"><span class="octicon octicon-link"></span></a>Wyniki uzyskane przez uczniów w Polsce</h3>
+
+<p>Podobne kroki wykonuję się, aby wgrać do pakietu <strong>R</strong> wyniki uzyskane przez Polskich szesnatolatków. Dane w formacie <code>.txt</code> pobieramy <a href="http://pisa2012.acer.edu.au/downloads/INT_COG12_S_DEC03.zip">stąd</a>. Przy użyciu tych samych komend w <strong>SAS</strong>, tworzę plik o rozszerzeniu <code>.csv</code> zawierający wyniki. Następnie wgrywam je do <strong>R</strong> i łączę z poprzednią ramką danych (być może bezmyślnie).</p>
+
+<div class="highlight highlight-Ruby"><pre><span class="no">Wyn</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">"D:/PISA 2012/wyniki.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="no">TRUE</span><span class="p">)</span>
+
+<span class="n">polo</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="no">POL</span><span class="p">,</span> <span class="no">Wyn</span><span class="p">)</span>
+</pre></div>
+
+<p>Następnie, by można było ewentualnie przetransportować połączone dane, używam poniższych komend do zapisu scalonej bazy danych w formacie <code>.txt</code> i <code>.csv</code></p>
+
+<div class="highlight highlight-Ruby"><pre><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">polo</span><span class="p">,</span> <span class="s2">"D:/PISA 2012/polaczone.csv"</span><span class="p">)</span>
+
+<span class="n">write</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">polo</span><span class="p">,</span> <span class="s2">"D:/PISA 2012/polaczone.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+<p>Obecnie dane można wczytać poleceniami:</p>
+
+<div class="highlight highlight-Ruby"><pre><span class="n">ponowne</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s2">"D:/PISA 2012/polaczone.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="no">TRUE</span><span class="p">)</span>
+<span class="n">ponowne2</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">"D:/PISA 2012/polaczone.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="no">TRUE</span><span class="p">)</span>
+</pre></div>
+
+<p>Zbiór danych wczytanych z pliku <code>.csv</code> zawiera na początku jedną dodatkową kolumnę zawierającą liczbę porządkową danego gimnazjalisty.</p>
+
+<p>Więcej o PISA2012 można obejrzeć na Konferencji Umiejętności 15-latków: PISA 2012</p>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=FbYxl1_RkTI%0A" target="_blank"><img src="http://img.youtube.com/vi/FbYxl1_RkTI/1.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10"></a></p>
+        </section>
+
+        <footer>
+          PISA2012 is maintained by <a href="https://github.com/KZPS">KZPS</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
