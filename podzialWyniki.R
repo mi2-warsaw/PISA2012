@@ -30,6 +30,11 @@ ile_punktow<- function(x, pocz, kon){
 
 
 
+polska <- read.csv("/home/students/bioinf/m/mk291505/polaczone.csv", sep=",", h=TRUE)
+
+
+
+
 matm <- apply(polska, 1, ile_punktow, pocz=poczM, kon=konM)
 czyt <- apply(polska, 1, ile_punktow, pocz=poczC, kon=konC)
 scie <- apply(polska, 1, ile_punktow, pocz=poczS, kon=konS)

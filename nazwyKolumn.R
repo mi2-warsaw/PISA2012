@@ -1,4 +1,4 @@
-#dane <- read.csv("~/Desktop/pisa/polaczone.csv", header=TRUE)
+polska <- read.csv("~/Desktop/pisa/polaczone.csv", header=TRUE)
 
 #Ponumerowane Nazwy Kolumn
 #http://pisa2012.acer.edu.au/downloads/M_stu_codebook.pdf
@@ -259,8 +259,8 @@
 #253 PerseveranceGiveUpEasily
 
 
-dane <- dane[,c(11:263)] 
-colnames(dane) <- c(
+polska <- polska[,c(11:263)] 
+colnames(polska) <- c(
   "BirthMonth",
   "BirthYear",
   "Gender",
@@ -515,8 +515,8 @@ colnames(dane) <- c(
   "PerceivedControlPerformPoorRegardless",
   "PerseveranceGiveUpEasily"
   )
-
-fajne <- dane[,c(3,9,18,24,36,69,80,120,151,181,229,231,240,251)]
+polska <- polska[,c(11:263)] 
+fajne <- polska[,c(3,9,18,24,36,69,80,120,151,181,229,231,240,251)]
 #Ponumerowane nazwy kolumn:
 #1 Gender
 #2 LateForSchool
@@ -535,11 +535,19 @@ fajne <- dane[,c(3,9,18,24,36,69,80,120,151,181,229,231,240,251)]
 
 
 #Na dobry poczatek:
-table(fajne[ , 3])
-table(fajne[ , 4])
+barplot(table(fajne[ , 3]))
+table(fajne[ , 14])
 
 par(mfrow = c(1, 1))
-barplot( table ( fajne[ , 5]),
+barplot( table ( fajne[ , 14]),
          main = "Posiadanie wlasnego pokoju",
          col = "deeppink4"
 )
+
+
+
+######
+
+
+
+
